@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { JobProfile } from 'src/sections/job/job-profile';
-import { AccountProfileDetails } from 'src/sections/job/job-details';
+import { JobProfileDetails } from 'src/sections/job/job-details';
 
 const Page = () => (
     <>
@@ -42,7 +42,7 @@ const Page = () => (
                                 md={6}
                                 lg={8}
                             >
-                                <AccountProfileDetails />
+                                <JobProfileDetails />
                             </Grid>
                         </Grid>
                     </div>

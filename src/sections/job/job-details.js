@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -13,14 +13,21 @@ import {
 
 import MultipleSelectCheckmarks from 'src/components/role-dropdown';
 
-export const AccountProfileDetails = () => {
+export const JobProfileDetails = () => {
   const [values, setValues] = useState({
-    firstName: 'Riyesh',
-    lastName: 'Shrestha',
-    email: 'Duwal1094@gmail.com',
-    phone: '',
+    jobinfo: 'Dhangadi',
+    location: 'Dhangadi',
+    status: 'ongoing',
+    driver_id: '1',
+    conductor_id: '1',
+    source: 'kathmandu',
+    destination: 'dhangadi'
 
   });
+
+  useEffect(() => {
+    console.log(values);
+  }, [values.status]);
 
   const handleChange = useCallback(
     (event) => {
@@ -62,12 +69,12 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  helperText="Please specify the first name"
-                  label="First name"
-                  name="firstName"
+                  helperText="Please add the job information"
+                  label="Jobinfo"
+                  name="jobinfo"
                   onChange={handleChange}
                   required
-                  value={values.firstName}
+                  value={values.jobinfo}
                 />
               </Grid>
               <Grid
@@ -76,11 +83,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Last name"
-                  name="lastName"
+                  label="Location"
+                  name="location"
                   onChange={handleChange}
                   required
-                  value={values.lastName}
+                  value={values.location}
                 />
               </Grid>
               <Grid
@@ -89,11 +96,11 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Email Address"
-                  name="email"
+                  label="Status"
+                  name="status"
                   onChange={handleChange}
                   required
-                  value={values.email}
+                  value={values.status}
                 />
               </Grid>
               <Grid
@@ -102,11 +109,12 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Phone Number"
-                  name="phone"
+                  label="Driver ID"
+                  name="driverid"
                   onChange={handleChange}
                   type="number"
-                  value={values.phone}
+                  required
+                  value={values.driver_id}
                 />
               </Grid>
               <Grid
@@ -115,18 +123,40 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Country"
-                  name="country"
+                  label="Conductor ID"
+                  name="conductorid"
                   onChange={handleChange}
                   required
-                  value={values.country}
+                  value={values.conductor_id}
                 />
               </Grid>
               <Grid
                 xs={12}
                 md={6}
               >
-                <MultipleSelectCheckmarks />
+                <TextField
+                  fullWidth
+                  label="Source"
+                  name="source"
+                  onChange={handleChange}
+                  required
+                  value={values.source}
+                />
+
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  label="Destination"
+                  name="destination"
+                  onChange={handleChange}
+                  required
+                  value={values.destination}
+                />
+
               </Grid>
             </Grid>
           </Box>
